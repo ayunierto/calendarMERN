@@ -5,6 +5,7 @@ import { NavBar } from "../components/NavBar"
 import { localizer } from '../../helpers'
 import { CalendarEvent } from '../components/CalendarEvent'
 import { useState } from 'react'
+import { CalendarModal } from '../components/CalendarModal'
 
 
 export const CalendarPage = () => {
@@ -69,6 +70,8 @@ export const CalendarPage = () => {
                 onSelectEvent={ onSelect }
                 onView={ onViewChanged }
             />
+
+            <CalendarModal />
         </>
     )
 }
