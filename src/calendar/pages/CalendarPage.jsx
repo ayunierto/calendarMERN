@@ -6,26 +6,15 @@ import { localizer } from '../../helpers'
 import { CalendarEvent } from '../components/CalendarEvent'
 import { useState } from 'react'
 import { CalendarModal } from '../components/CalendarModal'
-import { useUiStore } from '../../hooks'
+import { useCalendarStore, useUiStore } from '../../hooks'
 
 
 export const CalendarPage = () => {
 
     const { openDateModal } = useUiStore()
+    const { events } = useCalendarStore()
 
     const [lastView, setLastView] = useState( localStorage.getItem('lastView') || 'week')
-
-    const events = [{
-        title: 'Birthday',
-        notes: 'buy kake',
-        start: new Date(),
-        end: addHours( new Date(), 2 ),
-        bgColor: '#fafafa',
-        user: {
-            _id: 'asd123',
-            name: 'Jhon Doe'
-        }
-    }]
 
     const eventStyleGetter = ( event, start, end, isSelected ) => {
 
