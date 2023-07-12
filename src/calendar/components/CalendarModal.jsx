@@ -51,7 +51,7 @@ export const CalendarModal = () => {
 
     }, [ formValues.title, formSubmitted ])
 
-    const { activeEvent }  = useCalendarStore()
+    const { activeEvent, startSavingEvent }  = useCalendarStore()
 
     useEffect(() => {
       
@@ -81,7 +81,7 @@ export const CalendarModal = () => {
         closeDateModal()
     }
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault()
 
         setFormSubmitted( true )
@@ -98,6 +98,8 @@ export const CalendarModal = () => {
         }
 
         console.log( formValues )
+        await startSavingEvent( formValues )
+        closeDateModal()
     }
 
     return (
